@@ -3,8 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 600px;
+            background-color: deeppink;
+            position: relative;
+        }
+
+        #box,.font {
+            position: absolute;
+            /*width: 100px;*/
+            /*height: 130px;*/
+            /*background-color: blue;*/
+            outline: 1px solid #fff;
+            display: flex;
+            justify-content: flex-start;
+            align-items: start;
+            color: white;
+            left: 50px;
+            top: 60px;
+            font-size: 17px;
+            transform: scale(1);
+            transform-origin: 0 0;
+        }
+    </style>
 </head>
 <body>
 
+<div id="app">
+    <!--    <input type="text"><br>-->
+    <!--    <input type="text"><br>-->
+    <!--    <input type="text"><br>-->
+    <!--    <input type="text"><br>-->
+
+    <div class="wrap" id="wrap">
+<!--        <div class="box" id="box"></div>-->
+<!--        <img src="img.png" alt="" id="box">-->
+        <div class="font" id="box">
+           Mzai Eats
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        "use strict";
+        calculatePosition();
+
+        function calculatePosition() {
+            const box = document.getElementById('box')
+            const wrap = document.getElementById('wrap')
+            console.log('box.offsetTop:', box.offsetTop)
+            console.log('box.offsetLeft:', box.offsetLeft)
+            console.log('wrap.offsetTop:', wrap.offsetTop)
+            console.log(box.clientWidth)
+            console.log(box.clientHeight)
+
+            // console.log('targetBox.offsetLeft:', box.offsetLeft)
+            // console.log('wrap.offsetLeft:', wrap.offsetLeft)
+            // console.log('box.clientHeight:', wrap.clientHeight)
+            // console.log('box.clientBottom:', wrap.clientHeight - box.clientHeight - box.offsetTop)
+            // if (wrap.offsetTop === box.offsetTop) {
+            //     console.log('box top:', 0)
+            // }
+            // if (wrap.offsetLeft === box.offsetLeft) {
+            //     console.log('box left:', 0)
+            // }
+        }
+    }
+</script>
 </body>
 </html>
