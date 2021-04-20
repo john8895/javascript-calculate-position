@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 600px;
+            background-color: deeppink;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+
+    <div class="wrap" id="wrap">
+        <div class="box" id="box">
+            {{message}}
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World!'
+        },
+        created: function () {
+            this.calculatePosition();
+        },
+        methods: {
+            calculatePosition: function () {
+                const box = document.getElementById('box')
+                const wrap = document.getElementById('wrap')
+                // console.log('targetBox.offsetTop:', box.offsetTop)
+                // console.log('box.offsetTop:', wrap.offsetTop)
+                // console.log('targetBox.offsetLeft:', box.offsetLeft)
+                // console.log('wrap.offsetLeft:', wrap.offsetLeft)
+                console.log('box.clientHeight:', wrap.clientHeight)
+                console.log('box.clientBottom:', wrap.clientHeight - box.clientHeight - box.offsetTop)
+                if (wrap.offsetTop === box.offsetTop) {
+                    console.log('box top:', 0)
+                }
+                if (wrap.offsetLeft === box.offsetLeft) {
+                    console.log('box left:', 0)
+                }
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
